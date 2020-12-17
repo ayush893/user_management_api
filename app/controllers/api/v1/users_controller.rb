@@ -21,6 +21,7 @@ module Api
 		  	#render plain: params[:user].inspect 
 			  	user = User.new(user_params)
 			  	if user.save
+			  		session[:user_id] =user.id
 			  	#redirec_to @user
 			  		render json: { status: "success", message: "You are registered successfully", data: user}, status: :ok
 			  	else
